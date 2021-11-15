@@ -13,6 +13,7 @@ process STAR_INDEX_REFERENCE {
 
     script:
     """
+    mkdir star
     STAR \\
             --runMode genomeGenerate \\
             --genomeDir star/ \\
