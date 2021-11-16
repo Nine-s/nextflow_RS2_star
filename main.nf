@@ -20,6 +20,21 @@ params.outdir = 'results'
 
 
 process split_fastq {
+    input: 
+    val(name), path(fastq)
+
+    output:
+    tuple val(name), path("*${name}_1.f*q.gz"), path("*${name}_2.f*q.gz")
+
+    script:
+    """ 
+    ./bin/splitFastq -i ${fastq[0]} -n ${params.num_lines} -o ${fastq[0].getBaseName()} -z
+    ./bin/splitFastq -i ${fastq[1]} -n ${params.num_lines} -o ${fastq[1].getBaseName()} -z
+
+    """
+}
+
+process split_fastq_unzipped {
 
     input:
     tuple val(name), path(fastq)
