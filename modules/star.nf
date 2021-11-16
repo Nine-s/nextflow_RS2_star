@@ -17,7 +17,7 @@ process STAR_INDEX_REFERENCE {
     STAR \\
             --runMode genomeGenerate \\
             --genomeDir star/ \\
-	    --genomeFastaFiles ${reference} \\
+	        --genomeFastaFiles ${reference} \\
             --sjdbGTFfile ${annotation}
     """
 }
@@ -25,6 +25,8 @@ process STAR_INDEX_REFERENCE {
 process STAR_ALIGN {
     label 'star'
     publishDir params.outdir
+    memory '30 GB'
+    executor 'k8s'
     
     input:
     tuple val(sample_name), path(reads_1), path(reads_2)
@@ -40,6 +42,7 @@ process STAR_ALIGN {
     STAR \\
           --genomeDir . \\
           --readFilesIn ${reads_1} ${reads_2} \\
+          --readFilesCommand gunzip -c \\
           --outFileNamePrefix ${reads_1.getBaseName()}. \\
           --sjdbGTFfile ${annotation}
     """   
