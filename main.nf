@@ -21,7 +21,7 @@ params.outdir = 'results'
 
 process split_fastq {
     input: 
-    val(name), path(fastq)
+    tuple val(name), path(fastq)
 
     output:
     tuple val(name), path("*${name}_1.f*q.gz"), path("*${name}_2.f*q.gz")
