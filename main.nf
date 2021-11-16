@@ -28,8 +28,8 @@ process split_fastq {
 
     script:
     """ 
-    ./bin/splitFastq -i ${fastq[0]} -n ${params.num_lines} -o ${fastq[0].getBaseName()} -z
-    ./bin/splitFastq -i ${fastq[1]} -n ${params.num_lines} -o ${fastq[1].getBaseName()} -z
+    ./bin/splitFastq -i ${fastq[0]} -n ${params.split} -o ${fastq[0].getBaseName()} -z
+    ./bin/splitFastq -i ${fastq[1]} -n ${params.split} -o ${fastq[1].getBaseName()} -z
 
     """
 }
