@@ -1,7 +1,7 @@
 process STAR_INDEX_REFERENCE {
     label 'star'
     publishDir params.outdir
-    memory '50 GB'
+    memory '30 GB'
     executor 'k8s'
  
     input:
