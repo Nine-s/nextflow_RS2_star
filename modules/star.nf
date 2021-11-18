@@ -25,7 +25,7 @@ process STAR_INDEX_REFERENCE {
 process STAR_ALIGN {
     label 'star'
     publishDir params.outdir
-    memory '40 GB'
+    memory '50 GB'
     executor 'k8s'
     
     input:
