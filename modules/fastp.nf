@@ -12,6 +12,6 @@ process FASTP {
 
     script:
     """
-    fastp -i ${reads_1} -I ${reads_2} -o ${reads_1.getBaseName()}.R1.trimmed.fastq -O ${reads_1.getBaseName()}.R2.trimmed.fastq --detect_adapter_for_pe --json ${name}_fastp.json --html ${name}_fastp.html
+    fastp -i ${reads_1} -I ${reads_2} -o ${reads_1.getBaseName()}.R1.trimmed.fastq.gz -O ${reads_1.getBaseName()}.R2.trimmed.fastq.gz --detect_adapter_for_pe --json ${name}_fastp.json --html ${name}_fastp.html
     """
 }
