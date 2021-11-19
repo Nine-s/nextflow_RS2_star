@@ -6,7 +6,7 @@ process FASTP {
     tuple val(name), path(reads_1), path(reads_2)
 
     output:
-    tuple val(name), path("*${name}*R1.trimmed.f*q"), path("*${name}*R2.trimmed.f*q"), emit: sample_trimmed
+    tuple val(name), path("*${name}*R1.trimmed.f*q.gz"), path("*${name}*R2.trimmed.f*q.gz"), emit: sample_trimmed
     path "${name}_fastp.json"
     path "${name}_fastp.html"
 
