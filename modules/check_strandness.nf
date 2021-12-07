@@ -20,4 +20,6 @@ process CHECK_STRANDNESS {
 	else
 		STRANDNESS="error"
 	fi
-     '''
+    '''
+
+}
