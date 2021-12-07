@@ -74,7 +74,7 @@ workflow {
         | view()
         | set{ read_pairs_ch }
 
-    CHECK_STRANDNESS( read_pairs_unsplit_ch, params.reference_cdna, params.reference_annotation )
+    CHECK_STRANDNESS( read_pairs_unsplit_ch, params.reference_cdna, params.reference_annotation_ensembl )
     FASTP( read_pairs_ch )
     STAR_INDEX_REFERENCE( params.reference_genome, params.reference_annotation )
     STAR_ALIGN( FASTP.out.sample_trimmed, STAR_INDEX_REFERENCE.out, params.reference_annotation, CHECK_STRANDNESS.out.first() )
