@@ -45,7 +45,6 @@ process STAR_ALIGN {
           --genomeDir . \\
           --readFilesIn !{reads_1} !{reads_2} \\
           --alignSoftClipAtReferenceEnds No \\
-          --readFilesCommand gunzip -c \\
           --outFileNamePrefix !{reads_1.getBaseName()}. \\
           --sjdbGTFfile !{annotation} \\
 	  --outFilterIntronMotifs RemoveNoncanonical \\
@@ -59,7 +58,6 @@ process STAR_ALIGN {
 	  --outFilterIntronMotifs RemoveNoncanonical \\
           --alignSoftClipAtReferenceEnds No \\
 	  --outSAMstrandField intronMotif \\
-          --readFilesCommand gunzip -c \\
           --outFileNamePrefix !{reads_1.getBaseName()}. \\
           --sjdbGTFfile !{annotation} \\
 	  --outSAMattrIHstart 0
